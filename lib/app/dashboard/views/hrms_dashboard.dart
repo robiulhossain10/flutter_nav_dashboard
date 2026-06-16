@@ -54,7 +54,7 @@ class HRMSDashboard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-
+          OutlinedButton(onPressed: () {}, child: Text("Cancel")),
           const Text(
             "Quick Actions",
             style: TextStyle(
