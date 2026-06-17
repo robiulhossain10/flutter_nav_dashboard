@@ -3,16 +3,15 @@ import 'package:get/get.dart';
 import 'package:new_system_flutter/app/dashboard/controller/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
-  // কন্ট্রোলারটি খুঁজে নেওয়া হলো যা বাইন্ডিং এর মাধ্যমে ইনজেক্ট হয়েছে
-  final SplashController controller = Get.find<SplashController>();
+   SplashScreen({super.key});
+    final SplashController controller = Get.find<SplashController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent, // HRMS থিম কালার
+      backgroundColor: Colors.blueAccent,
       body: Stack(
         children: [
-          // মাঝখানে লোগো এবং নাম
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +23,7 @@ class SplashScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
-                    Icons.business_center, // কোম্পানির লোগো আইকন
+                    Icons.business_center,
                     size: 60,
                     color: Colors.blueAccent,
                   ),
@@ -47,7 +46,7 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
 
-          // একদম নিচে লোডিং ইন্ডিকেটর
+
           Positioned(
             bottom: 50,
             left: 0,

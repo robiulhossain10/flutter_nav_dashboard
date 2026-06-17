@@ -66,7 +66,7 @@ class MainScreen extends StatelessWidget {
                 // কারণ এই পেজগুলো আলাদা ফুল-স্ক্রিন রুট হিসেবে ওপেন হচ্ছে
                 String targetRoute = '';
                 if (index == 1) targetRoute = AppRoutes.details;
-                if (index == 2) targetRoute = AppRoutes.profile;
+                if (index == 2) targetRoute = AppRoutes.hospital;
                 if (index == 3) targetRoute = AppRoutes.users;
 
                 if (targetRoute.isNotEmpty) {

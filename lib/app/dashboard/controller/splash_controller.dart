@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:new_system_flutter/app/dashboard/views/main_screen.dart';
+import 'package:new_system_flutter/app/routes/app_routes.dart';
 
 class SplashController extends GetxController {
   @override
@@ -13,12 +13,12 @@ class SplashController extends GetxController {
     await Future.delayed(const Duration(seconds: 3));
 
     // যদি আপনার main.dart-এ Named Route সেট করা থাকে, তবে এটি ব্যবহার করা সেরা:
-    // Get.offAllNamed(AppRoutes.MAIN);
+    Get.offAllNamed(AppRoutes.auth);
 
     // বিকল্প (Named Route ছাড়া নিরাপদ নেভিগেশন):
-    Get.offAll(
-      () => MainScreen(),
-      predicate: (route) => false, // পূর্ববর্তী সব রুট মেমোরি থেকে নিশ্চিতভাবে মুছে দেবে
-    );
+    // Get.offAll(
+    //   () => MainScreen(),
+    //   predicate: (route) => false, // পূর্ববর্তী সব রুট মেমোরি থেকে নিশ্চিতভাবে মুছে দেবে
+    // );
   }
 }

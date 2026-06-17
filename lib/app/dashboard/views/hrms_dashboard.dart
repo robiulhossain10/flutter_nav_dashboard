@@ -13,7 +13,6 @@ class HRMSDashboard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // ইউজার প্রোফাইল কার্ড
           Container(
             margin: EdgeInsets.only(top: 30),
             padding: const EdgeInsets.all(16),
@@ -54,13 +53,18 @@ class HRMSDashboard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          OutlinedButton(onPressed: () {}, child: Text("Cancel")),
+          OutlinedButton(
+            onPressed: () {
+              Get.toNamed(AppRoutes.auth);
+            },
+            child: Text("Logout"),
+          ),
           const Text(
             "Quick Actions",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.black54, // টেক্সট কালারটি একটু স্পষ্ট করা হলো
+              color: Colors.black54,
             ),
           ),
           const SizedBox(height: 12),
@@ -79,7 +83,7 @@ class HRMSDashboard extends StatelessWidget {
                 "Check In/Out",
                 Colors.green,
                 () {
-                  Get.toNamed(AppRoutes.splash);
+                  Get.toNamed(AppRoutes.hospital);
                 },
               ),
 
@@ -89,9 +93,7 @@ class HRMSDashboard extends StatelessWidget {
                 "Leave Request",
                 Colors.orange,
                 () {
-                  Get.toNamed(
-                    AppRoutes.splash,
-                  ); // MainScreen এর ইনডেক্স ২-এর সাথে মিল রেখে
+                  Get.toNamed(AppRoutes.stack);
                 },
               ),
 
