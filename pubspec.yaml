@@ -1,6 +1,6 @@
 name: new_system_flutter
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
@@ -20,7 +20,8 @@ dependencies:
   material_symbols_icons: ^4.2951.0
   meta: 1.18.0
   firebase_core: ^3.1.1
-  firebase_messaging: ^15.0.3  
+  firebase_messaging: ^15.0.3
+  firebase_in_app_messaging: ^0.8.1+10
 
 dev_dependencies:
   flutter_lints: ^6.0.0
@@ -31,7 +32,6 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

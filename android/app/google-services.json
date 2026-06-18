@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1096178179335",
+    "project_id": "test-robiul-fcm",
+    "storage_bucket": "test-robiul-fcm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096178179335:android:be6b937454264a9cfc79a2",
+        "android_client_info": {
+          "package_name": "com.example.new_system_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzn5MMJmZqoeIqfm0CfGTE4gy-AQ5IUhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
