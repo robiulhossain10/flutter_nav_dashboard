@@ -1,5 +1,4 @@
 // ignore: camel_case_types
-import 'dart:ffi';
 
 class Nmain {
   void amarDesh(int code,double price) {

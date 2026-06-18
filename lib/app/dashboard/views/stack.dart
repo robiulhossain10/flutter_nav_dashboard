@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class StackView extends StatelessWidget {
   const StackView({super.key});
@@ -20,52 +23,57 @@ class StackView extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: [BoxShadow(color: Colors.lightGreenAccent)],
               ),
-              child: Container(
-                margin: EdgeInsets.only(top: 15),
-                color: Colors.red,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.verified),
-                    ),
-                    SizedBox(width: 10),
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.verified),
-                    ),
-                    SizedBox(width: 10),
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.verified),
-                    ),
-                    SizedBox(width: 10),
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.verified),
-                    ),
-                    Positioned(
-                      right: 10,
-                      bottom: 20,
-                      child: Container(
-                        width: 16,
-                        height: 16,
-
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          border: BoxBorder.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ],
+              child: Align(
+                alignment: AlignmentGeometry.center,
+                child: Text(
+                  'Robiul Hossain',
+                  style: GoogleFonts.bebasNeue(fontSize: 35),
                 ),
               ),
+            ),
+
+            Positioned(
+              right: 165,
+              bottom: 180,
+
+              child: FaIcon(
+                FontAwesomeIcons.googlePay,
+                color: Colors.redAccent,
+                size: 50,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // ১. সাধারণ চিকন বর্ডার আইকন (Default Thin Outlined)
+                const Icon(
+                  Symbols.verified,
+                  color: Colors.blue,
+                  size: 40,
+                  weight: 600,
+                  opticalSize: 34,
+                ),
+
+                const Icon(Icons.verified, size: 40, color: Colors.red),
+
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Symbols.home, size: 40),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Symbols.menu, size: 30, color: Color(0xFFF70000)),
+                ),
+
+                // ২. FULL FILL FEATURE: আইকনের ভেতরটা সম্পূর্ণ ভরাট হবে
+                const Icon(Symbols.face, size: 40, color: Colors.red),
+
+                // ৩. CUSTOM WEIGHT FEATURE: আইকনের দাগগুলো চরম মোটা (Bold) হবে
+                const Icon(Symbols.home, size: 40),
+
+                // ৪. ALL FEATURES COMBINED: সব ফিচার একসাথে ব্যবহার
+                Icon(Symbols.verified, size: 50, color: Colors.blue),
+              ],
             ),
           ],
         ),

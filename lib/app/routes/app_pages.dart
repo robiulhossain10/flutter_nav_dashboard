@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/hospital_binding.dart';
+import 'package:new_system_flutter/app/dashboard/bindings/login_bindings.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/main_binding.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/splash_binding.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/user_binding.dart';
@@ -27,7 +28,9 @@ class AppPages {
       page: () => MainScreen(),
       binding: MainBinding(),
     ),
-    GetPage(name: AppRoutes.details, page: () => ArafatView()),
+    GetPage(
+      name: AppRoutes.details,
+       page: () => ArafatView()),
     GetPage(name: AppRoutes.profile, page: () => ProfilreView()),
     GetPage(name: AppRoutes.stack, page: () => StackView()),
     GetPage(
@@ -50,6 +53,10 @@ class AppPages {
       page: () => HospitalDetails(),
       binding: HospitalBinding(),
     ),
-    GetPage(name: AppRoutes.auth, page: () => LoginView()),
+    GetPage(
+      name: AppRoutes.auth,
+      page: () => LoginView(),
+      binding: LoginBindings(),
+    ),
   ];
 }

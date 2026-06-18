@@ -1,60 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_system_flutter/app/dashboard/models/login_model.dart';
+import 'package:new_system_flutter/app/routes/app_routes.dart';
 import 'package:new_system_flutter/app/utils/app_snacbar.dart';
 
 class LoginController extends GetxController {
-  // টেক্সট এডিটিং কন্ট্রোলার
-  final emailController = TextEditingController();
+  final employeeIdController = TextEditingController();
   final passwordController = TextEditingController();
 
-  // গ্লোবাল ফর্ম কি (Validation এর জন্য)
-  final loginFormKey = GlobalKey<FormState>();
+  final isLoading = false.obs;
+  final obscureText = true.obs;
 
-  // পাসওয়ার্ড হাইড/শো করার জন্য Observable (obs) ভ্যারিয়েবল
-  var isPasswordHidden = true.obs;
-
-  // লোডিং স্টেট হ্যান্ডেল করার জন্য
-  var isLoading = false.obs;
-
-  // পাসওয়ার্ডের ভিজিবিলিটি চেঞ্জ করার মেথড
-  void togglePasswordVisibility() {
-    isPasswordHidden.value = !isPasswordHidden.value;
+  void togglePassword() {
+    obscureText.value = !obscureText.value;
   }
 
-  // লগইন মেথড
-  void login() async {
-    // ফর্ম ভ্যালিডেশন চেক
-    if (loginFormKey.currentState!.validate()) {
-      isLoading.value = true;
-
-      try {
-        // এখানে তোমার API কল বা ব্যাকএন্ড লজিক হবে
-        // উদাহরণস্বরূপ একটি ফেক ডিলে (Delay) দেওয়া হলো
-        await Future.delayed(const Duration(seconds: 2));
-
-        // সফল হলে মেসেজ এবং নেভিগেশন
-        AppSnackbar.show(
-          title: 'Login',
-          message: 'Successful',
-          type: SnackbarType.success,
-        );
-
-        Get.toNamed('/home');
-
-        // হোম পেজে যাওয়ার জন্য (ধরে নিলাম HomeView আছে)
-        // Get.offAll(() => HomeView());
-      } catch (e) {
-        Get.snackbar('Error', e.toString());
-      } finally {
-        isLoading.value = false;
-      }
+  Future<void> login() async {
+    if (employeeIdController.text.isEmpty) {
+      Get.snackbar("Error", "Employee ID Required");
+      return;
     }
+
+    if (passwordController.text.isEmpty) {
+      Get.snackbar("Error", "Password Required");
+      return;
+    }
+
+    LoginModel model = LoginModel(
+      employeeId: employeeIdController.text.trim(),
+      password: passwordController.text.trim(),
+    );
+
+    isLoading.value = true;
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    isLoading.value = false;
+
+    Get.toNamed(AppRoutes.home);
+
+    print(model.toJson());
+
+    AppSnackbar.show(
+      title: 'Login',
+      message: 'Success',
+      type: SnackbarType.success,
+    );
   }
 
   @override
   void onClose() {
-    // মেমোরি লিক রোধ করতে কন্ট্রোলার ক্লোজ করা
-    emailController.dispose();
+    employeeIdController.dispose();
     passwordController.dispose();
     super.onClose();
   }

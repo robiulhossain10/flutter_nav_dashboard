@@ -1,96 +1,176 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_system_flutter/app/dashboard/controller/login_controller.dart';
+import 'package:new_system_flutter/app/dashboard/views/custom_textfield.dart';
 
-class LoginView extends StatelessWidget {
+import '../controller/login_controller.dart';
+
+class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // কন্ট্রোলারটিকে ভিউ-এর সাথে ইনজেক্ট/লিংক করা হলো
-    final LoginController controller = Get.put(LoginController());
-
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(24.0),
-            child: Form(
-              key: controller.loginFormKey, // কন্ট্রোলারের ফর্ম কি
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // লোগো বা টাইটেল
-                  const Icon(Icons.lock_person_rounded, size: 80, color: Colors.blue),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Welcome Back',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Container(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: BorderRadius.circular(35),
+          ),
+          child: Column(
+            children: [
+              /// Header
+              Container(
+                height: 250,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Color(0xffFF3B3B),
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(30),
                   ),
-                  const SizedBox(height: 32),
-
-                  // ইমেইল ফিল্ড
-                  TextFormField(
-                    controller: controller.emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      labelText: 'Email Address',
-                      prefixIcon: const Icon(Icons.email_outlined),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) return 'Email is required';
-                      if (!GetUtils.isEmail(value)) return 'Enter a valid email'; // GetX এর বিল্ট-ইন ভ্যালিডেটর
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-
-                  // পাসওয়ার্ড ফিল্ড (স্টেট চেঞ্জের জন্য Obx ব্যবহার করা হয়েছে)
-                  Obx(() => TextFormField(
-                    controller: controller.passwordController,
-                    obscureText: controller.isPasswordHidden.value,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      prefixIcon: const Icon(Icons.lock_outline),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          controller.isPasswordHidden.value
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    /// Rounded Logo
+                    Container(
+                      width: 90,
+                      height: 90,
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/ignitelogo.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, _, _) {
+                            return const Icon(
+                              Icons.person,
+                              size: 40,
+                              color: Colors.white,
+                            );
+                          },
                         ),
-                        onPressed: controller.togglePasswordVisibility,
                       ),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) return 'Password is required';
-                      if (value.length < 6) return 'Password must be at least 6 characters';
-                      return null;
-                    },
-                  )),
-                  const SizedBox(height: 24),
 
-                  // লগইন বাটন (লোডিং স্টেটের জন্য Obx ব্যবহার করা হয়েছে)
-                  Obx(() => ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    const SizedBox(height: 15),
+
+                    const Text(
+                      "Welcome Back",
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                    onPressed: controller.isLoading.value ? null : controller.login,
-                    child: controller.isLoading.value
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(strokeWidth: 2),
-                          )
-                        : const Text('Login', style: TextStyle(fontSize: 16)),
-                  )),
-                ],
+
+                    const Text(
+                      "Sign in to ESS Portal",
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                  ],
+                ),
               ),
-            ),
+
+              /// Form
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Employee ID"),
+
+                    const SizedBox(height: 8),
+
+                    CustomTextField(
+                      controller: controller.employeeIdController,
+                      hintText: "EMP-00123",
+                    ),
+
+                    const SizedBox(height: 15),
+
+                    const Text("Password"),
+
+                    const SizedBox(height: 8),
+
+                    Obx(
+                      () => CustomTextField(
+                        controller: controller.passwordController,
+                        hintText: "********",
+                        obscureText: controller.obscureText.value,
+                        suffixIcon: IconButton(
+                          onPressed: controller.togglePassword,
+                          icon: Icon(
+                            controller.obscureText.value
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 10),
+
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Forgot password?",
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 10),
+
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: Obx(
+                        () => ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xffFF3B3B),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: controller.isLoading.value
+                              ? null
+                              : controller.login,
+                          child: controller.isLoading.value
+                              ? const SizedBox(
+                                  width: 22,
+                                  height: 22,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : const Text(
+                                  "Sign In",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 15),
+
+                    const Center(
+                      child: Text(
+                        "Secured with JWT + OTP",
+                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
