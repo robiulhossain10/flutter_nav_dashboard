@@ -18,7 +18,6 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Vibrant red background color matching the screenshot
     const Color brandRed = Color(0xFFFF2A33);
-    const Color brandGreen = Color(0xFF0DB905);
 
     return Scaffold(
       backgroundColor: brandRed,

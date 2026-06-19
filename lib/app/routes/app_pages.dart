@@ -5,6 +5,7 @@ import 'package:new_system_flutter/app/dashboard/bindings/main_binding.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/splash_binding.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/user_binding.dart';
 import 'package:new_system_flutter/app/dashboard/views/AttendanceDetailsPage%20.dart';
+import 'package:new_system_flutter/app/dashboard/views/aproval_slider.dart';
 import 'package:new_system_flutter/app/dashboard/views/arafat_view.dart';
 import 'package:new_system_flutter/app/dashboard/views/hospital_details.dart';
 import 'package:new_system_flutter/app/dashboard/views/hospital_view.dart';
@@ -57,6 +58,10 @@ class AppPages {
       name: AppRoutes.auth,
       page: () => LoginView(),
       binding: LoginBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.slider,
+      page: () => ApprovalView()
     ),
   ];
 }

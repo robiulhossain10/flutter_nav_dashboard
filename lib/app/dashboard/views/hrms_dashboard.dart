@@ -108,7 +108,7 @@ class HRMSDashboard extends StatelessWidget {
                 "Task List",
                 Colors.blue,
                 () {
-                  Get.toNamed(AppRoutes.users);
+                  Get.toNamed(AppRoutes.slider);
                 },
               ),
             ],

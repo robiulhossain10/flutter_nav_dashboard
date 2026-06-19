@@ -9,4 +9,5 @@ class AppRoutes {
   static const String hospitalDetails = '/hospital-details';
   static const String auth = '/auth';
   static const String stack = '/stack';
+  static const String slider = '/slider';
 }

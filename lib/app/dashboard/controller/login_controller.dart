@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_system_flutter/app/config/loading_service.dart';
 import 'package:new_system_flutter/app/dashboard/models/login_model.dart';
 import 'package:new_system_flutter/app/routes/app_routes.dart';
 import 'package:new_system_flutter/app/utils/app_snacbar.dart';
@@ -16,6 +17,8 @@ class LoginController extends GetxController {
   }
 
   Future<void> login() async {
+    isLoading.value = true;
+    LoadingService.show();
     if (employeeIdController.text.isEmpty) {
       Get.snackbar("Error", "Employee ID Required");
       return;
@@ -36,6 +39,7 @@ class LoginController extends GetxController {
     await Future.delayed(const Duration(seconds: 2));
 
     isLoading.value = false;
+    LoadingService.hide();
 
     Get.toNamed(AppRoutes.home);
 
