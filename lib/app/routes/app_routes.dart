@@ -10,4 +10,5 @@ class AppRoutes {
   static const String auth = '/auth';
   static const String stack = '/stack';
   static const String slider = '/slider';
+  static const String newpractice = '/newpractice';
 }

@@ -11,6 +11,7 @@ import 'package:new_system_flutter/app/dashboard/views/hospital_details.dart';
 import 'package:new_system_flutter/app/dashboard/views/hospital_view.dart';
 import 'package:new_system_flutter/app/dashboard/views/login_view.dart';
 import 'package:new_system_flutter/app/dashboard/views/main_screen.dart';
+import 'package:new_system_flutter/app/dashboard/views/new_practice_view.dart';
 import 'package:new_system_flutter/app/dashboard/views/profile_view.dart';
 import 'package:new_system_flutter/app/dashboard/views/splash_screen.dart';
 import 'package:new_system_flutter/app/dashboard/views/stack.dart';
@@ -62,6 +63,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.slider,
       page: () => ApprovalView()
+    ),
+    GetPage(
+      name: AppRoutes.newpractice,
+      page: () => NewPracticeView()
     ),
   ];
 }

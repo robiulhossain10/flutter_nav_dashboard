@@ -93,7 +93,7 @@ class HRMSDashboard extends StatelessWidget {
                 "Leave Request",
                 Colors.orange,
                 () {
-                  Get.toNamed(AppRoutes.stack);
+                  Get.toNamed(AppRoutes.newpractice);
                 },
               ),
 
