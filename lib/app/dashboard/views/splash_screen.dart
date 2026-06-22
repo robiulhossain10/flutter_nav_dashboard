@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_system_flutter/app/dashboard/controller/splash_controller.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends GetView<SplashController> {
   SplashScreen({super.key});
 
-  // Instantiate the controller using GetX
-  final SplashController controller = Get.put(SplashController());
+
 
   final currentIndex = 0.obs;
 

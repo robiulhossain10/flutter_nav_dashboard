@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class NewPracticeView extends StatelessWidget {
   const NewPracticeView({super.key});
 

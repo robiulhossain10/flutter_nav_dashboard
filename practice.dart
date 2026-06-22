@@ -2,9 +2,9 @@
 
 class Nmain {
   void amarDesh(int code,double price) {
-    final int age = 25;
-final String name = "Zayan"; // লেখার জন্য (String)
-final bool isLoggedIn = true;
+    const int age = 25;
+const String name = "Zayan"; // লেখার জন্য (String)
+const bool isLoggedIn = true;
 print('Code: $code, Age: $age, Name: $name, Price: $price, IsloggedIn: $isLoggedIn');
 
   }

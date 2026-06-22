@@ -192,7 +192,7 @@ class _ApprovalViewState extends State<ApprovalView> {
   }
 
   void navTO() {
-    Get.to(HospitalView());
+    Get.to(const HospitalView());
   }
 }
 

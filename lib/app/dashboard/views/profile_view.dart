@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:new_system_flutter/app/routes/app_routes.dart';
@@ -28,15 +29,31 @@ class ProfilreView extends StatelessWidget {
                   Stack(
                     children: [
                       InkWell(
-                        onTap: () => {
-                          Get.toNamed(AppRoutes.details)
-                        },
-                        child: const CircleAvatar(
-                          radius: 35,
-                          backgroundColor: Colors.deepPurple,
-                          backgroundImage: NetworkImage(
-                            'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
+                        onTap: () => {Get.toNamed(AppRoutes.details)},
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              'https://i.ibb.co.com/BKsmnMph/1779782652825-P-P-jpg.jpg',
+                          imageBuilder: (context, imageProvider) => Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
+                          errorWidget: (context, url, error) =>
+                              const CircleAvatar(
+                                radius: 50,
+                                backgroundColor: Colors.grey,
+                                child: Icon(
+                                  Icons.person,
+                                  size: 50,
+                                  color: Colors.white,
+                                ),
+                              ),
                         ),
                       ),
                       Positioned(

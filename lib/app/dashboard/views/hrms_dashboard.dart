@@ -27,7 +27,7 @@ class HRMSDashboard extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person, size: 35, color: Colors.blueAccent),
                 ),
-                SizedBox(width: 16),
+                SizedBox(width: 16), 
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -137,7 +137,7 @@ class HRMSDashboard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: color, size: 30),

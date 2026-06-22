@@ -27,8 +27,8 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.home,
-      page: () => const BottomNavbarView(),
-      binding: NavbarBinding(),
+      page: () =>  MainScreen(),
+      binding: MainBinding(),
     ),
     GetPage(
       name: AppRoutes.details,
@@ -47,7 +47,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.hospital,
-      page: () => HospitalView(),
+      page: () => const HospitalView(),
       binding: HospitalBinding(),
     ),
     GetPage(
