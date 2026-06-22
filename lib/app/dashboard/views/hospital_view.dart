@@ -4,10 +4,8 @@ import 'package:new_system_flutter/app/dashboard/controller/hospital_conroller.d
 import 'package:new_system_flutter/app/routes/app_routes.dart';
 
 // ignore: must_be_immutable
-class HospitalView extends StatelessWidget {
-  HospitalView({super.key});
-
-  HospitalConroller controller = Get.find<HospitalConroller>();
+class HospitalView extends GetView<HospitalConroller> {
+  const HospitalView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,7 @@ class HospitalView extends StatelessWidget {
         title: const Text("Hospital Users"),
         centerTitle: true,
         backgroundColor: Colors.amberAccent,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(30.00)),
         ),
       ),

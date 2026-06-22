@@ -9,7 +9,7 @@ class ArafatView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Arafat',
           style: TextStyle(
             fontSize: 20,
@@ -18,7 +18,7 @@ class ArafatView extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.indigo,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
         ),
         centerTitle: true,
@@ -27,12 +27,12 @@ class ArafatView extends StatelessWidget {
         child: Column(
           children: [
             Card(
-              margin: EdgeInsets.all(15),
+              margin: const EdgeInsets.all(15),
               elevation: 4,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(20),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,18 +67,18 @@ class ArafatView extends StatelessWidget {
               ),
             ),
             Card(
-              margin: EdgeInsets.all(15),
+              margin: const EdgeInsets.all(15),
               elevation: 4,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 30,
                           backgroundColor: Colors.cyanAccent,
                           backgroundImage: NetworkImage(
@@ -100,9 +100,9 @@ class ArafatView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,7 +156,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -181,14 +181,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -196,7 +196,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -206,10 +206,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -219,10 +219,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,
@@ -257,7 +257,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -282,14 +282,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -297,7 +297,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -307,10 +307,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -320,10 +320,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,
@@ -358,7 +358,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -383,14 +383,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -398,7 +398,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -408,10 +408,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -421,10 +421,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,
@@ -459,7 +459,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -484,14 +484,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -499,7 +499,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -509,10 +509,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -522,10 +522,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,
@@ -560,7 +560,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -585,14 +585,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -600,7 +600,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -610,10 +610,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -623,10 +623,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,
@@ -661,7 +661,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -686,14 +686,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -701,7 +701,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -711,10 +711,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -724,10 +724,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,
@@ -762,7 +762,7 @@ class ArafatView extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 35,
                           backgroundImage: NetworkImage(
                             'https://i.ibb.co.com/848JYZCy/1779782652825-P-P-jpg.jpg',
@@ -787,14 +787,14 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Arafat',
                                 style: TextStyle(
                                   fontSize: 20,
@@ -802,7 +802,7 @@ class ArafatView extends StatelessWidget {
                                 ),
                               ),
 
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5),
 
                               Icon(
                                 Icons.verified,
@@ -812,10 +812,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(Icons.code, size: 16, color: Colors.indigo),
                               SizedBox(width: 5),
                               Text(
@@ -825,10 +825,10 @@ class ArafatView extends StatelessWidget {
                             ],
                           ),
 
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4),
 
                           Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.location_on,
                                 size: 16,

@@ -27,14 +27,14 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.home,
-      page: () => MainScreen(),
-      binding: MainBinding(),
+      page: () => const BottomNavbarView(),
+      binding: NavbarBinding(),
     ),
     GetPage(
       name: AppRoutes.details,
-       page: () => ArafatView()),
-    GetPage(name: AppRoutes.profile, page: () => ProfilreView()),
-    GetPage(name: AppRoutes.stack, page: () => StackView()),
+       page: () => const ArafatView()),
+    GetPage(name: AppRoutes.profile, page: () => const ProfilreView()),
+    GetPage(name: AppRoutes.stack, page: () => const StackView()),
     GetPage(
       name: AppRoutes.users,
       page: () => UserPage(),
@@ -42,7 +42,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.usersDetails,
-      page: () => AttendanceDetailsPage(),
+      page: () => const AttendanceDetailsPage(),
       binding: UserBinding(),
     ),
     GetPage(
@@ -52,21 +52,21 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.hospitalDetails,
-      page: () => HospitalDetails(),
+      page: () => const HospitalDetails(),
       binding: HospitalBinding(),
     ),
     GetPage(
       name: AppRoutes.auth,
-      page: () => LoginView(),
+      page: () => const LoginView(),
       binding: LoginBindings(),
     ),
     GetPage(
       name: AppRoutes.slider,
-      page: () => ApprovalView()
+      page: () => const ApprovalView()
     ),
     GetPage(
       name: AppRoutes.newpractice,
-      page: () => NewPracticeView()
+      page: () => const NewPracticeView()
     ),
   ];
 }

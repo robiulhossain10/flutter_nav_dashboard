@@ -29,7 +29,7 @@ class LoginController extends GetxController {
       return;
     }
 
-    LoginModel model = LoginModel(
+    final LoginModel model = LoginModel(
       employeeId: employeeIdController.text.trim(),
       password: passwordController.text.trim(),
     );

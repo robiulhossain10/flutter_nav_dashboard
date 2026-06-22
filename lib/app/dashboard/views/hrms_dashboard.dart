@@ -14,23 +14,23 @@ class HRMSDashboard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 30),
+            margin: const EdgeInsets.only(top: 30),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.blueAccent,
               borderRadius: BorderRadius.circular(16),
             ),
-            child: Row(
+            child: const Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person, size: 35, color: Colors.blueAccent),
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       "Welcome back,",
                       style: TextStyle(color: Colors.white70, fontSize: 14),
@@ -57,7 +57,7 @@ class HRMSDashboard extends StatelessWidget {
             onPressed: () {
               Get.toNamed(AppRoutes.auth);
             },
-            child: Text("Logout"),
+            child: const Text("Logout"),
           ),
           const Text(
             "Quick Actions",
@@ -137,7 +137,7 @@ class HRMSDashboard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.1),
+                color: color.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: color, size: 30),

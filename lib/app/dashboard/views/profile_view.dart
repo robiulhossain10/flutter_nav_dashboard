@@ -9,9 +9,9 @@ class ProfilreView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         backgroundColor: Colors.deepOrange,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
         ),
       ),
@@ -19,7 +19,7 @@ class ProfilreView extends StatelessWidget {
         color: Colors.lightBlue,
         child: Container(
           height: 300,
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -31,7 +31,7 @@ class ProfilreView extends StatelessWidget {
                         onTap: () => {
                           Get.toNamed(AppRoutes.details)
                         },
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                           radius: 35,
                           backgroundColor: Colors.deepPurple,
                           backgroundImage: NetworkImage(

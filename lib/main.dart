@@ -14,5 +14,5 @@ void main() async {
   runApp(const MyApp());
 
     // 🔥 background init
-  AppInitializer.init();
+  await AppInitializer.init();
 }

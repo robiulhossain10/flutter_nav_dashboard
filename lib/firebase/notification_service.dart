@@ -13,7 +13,7 @@ class NotificationService extends GetxService {
   Future<NotificationService> init() async {
     try {
       // ১. নোটিফিকেশন পারমিশন চাওয়া (Android 13+ এবং iOS এর জন্য জরুরি)
-      NotificationSettings settings = await _fcm.requestPermission(
+      final NotificationSettings settings = await _fcm.requestPermission(
         alert: true,
         badge: true,
         sound: true,
@@ -21,7 +21,7 @@ class NotificationService extends GetxService {
 
       if (settings.authorizationStatus == AuthorizationStatus.authorized) {
         print('ইউজার নোটিফিকেশন পারমিশন দিয়েছেন!');
-        
+
         // ব্যাকগ্রাউন্ড হ্যান্ডলার রেজিস্টার করা (এটি নেটওয়ার্ক ছাড়াই রেজিস্টার হতে পারে)
         FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
@@ -33,7 +33,7 @@ class NotificationService extends GetxService {
               message.notification!.body ?? '',
               snackPosition: SnackPosition.TOP,
               duration: const Duration(seconds: 4),
-              
+
               // 🎯 গুগল স্টাইল প্রফেশনাল ডিজাইন সেটিংস
               backgroundColor: const Color(0xFF1E1E1E).withValues(alpha: 0.95), // স্লিক ডার্ক ব্যাকগ্রাউন্ড
               colorText: const Color(0xFFFFFFFF), // সাদা টেক্সট
@@ -47,12 +47,12 @@ class NotificationService extends GetxService {
                   offset: const Offset(0, 4),
                 )
               ],
-              
+
               // 💡 বামপাশে একটি নোটিফিকেশন বেল আইকন
               icon: const Padding(
                 padding: EdgeInsets.only(left: 4),
                 child: Icon(
-                  Icons.notifications_active_outlined, 
+                  Icons.notifications_active_outlined,
                   color: Color(0xFF4285F4), // গুগল ব্লু কালার
                   size: 26,
                 ),
@@ -68,7 +68,7 @@ class NotificationService extends GetxService {
     } catch (e) {
       print("NotificationService ইনিশিয়ালাইজেশনে সমস্যা: $e");
     }
-    
+
     return this;
   }
 
@@ -76,7 +76,7 @@ class NotificationService extends GetxService {
   Future<void> _loadNetworkTokens() async {
     try {
       // ২. আপনার ডিভাইসের ইউনিক FCM টোকেন নেওয়া
-      String? token = await _fcm.getToken();
+      final String? token = await _fcm.getToken();
       print("================ FCM DEVICE TOKEN ================");
       print(token);
       print("==================================================");

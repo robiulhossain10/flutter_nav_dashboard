@@ -20,7 +20,7 @@ class HospitalDetails extends StatelessWidget {
             "Hospital Details",
             style: TextStyle(color: Colors.white),
           ),
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.vertical(
               bottom: Radius.circular(22),
             ),

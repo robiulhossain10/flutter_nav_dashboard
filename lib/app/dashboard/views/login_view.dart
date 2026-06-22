@@ -38,7 +38,7 @@ class LoginView extends GetView<LoginController> {
                     Container(
                       width: 90,
                       height: 90,
-                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
                       child: ClipOval(
                         child: Image.asset(
                           'assets/images/ignitelogo.png',

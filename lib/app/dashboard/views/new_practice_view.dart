@@ -151,9 +151,9 @@ class NewPracticeView extends StatelessWidget {
         clipBehavior: Clip
             .antiAlias, // রাউন্ডেড শেপ নিখুঁতভাবে কাটার জন্য অ্যান্টি-অ্যালিয়াসিং
       ),
-      body: Stack(
+      body: const Stack(
         children: [
-          
+
         ],
       ),
     );

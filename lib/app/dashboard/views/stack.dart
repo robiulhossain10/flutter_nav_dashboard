@@ -10,16 +10,16 @@ class StackView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stack Practice'),
+        title: const Text('Stack Practice'),
         backgroundColor: Colors.amber,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Stack(
           children: [
             Container(
               height: 300,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 boxShadow: [BoxShadow(color: Colors.lightGreenAccent)],
               ),
@@ -32,7 +32,7 @@ class StackView extends StatelessWidget {
               ),
             ),
 
-            Positioned(
+            const Positioned(
               right: 165,
               bottom: 180,
 
@@ -58,11 +58,11 @@ class StackView extends StatelessWidget {
 
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Symbols.home, size: 40),
+                  icon: const Icon(Symbols.home, size: 40),
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Icon(Symbols.menu, size: 30, color: Color(0xFFF70000)),
+                  child: const Icon(Symbols.menu, size: 30, color: Color(0xFFF70000)),
                 ),
 
                 // ২. FULL FILL FEATURE: আইকনের ভেতরটা সম্পূর্ণ ভরাট হবে
@@ -72,7 +72,7 @@ class StackView extends StatelessWidget {
                 const Icon(Symbols.home, size: 40),
 
                 // ৪. ALL FEATURES COMBINED: সব ফিচার একসাথে ব্যবহার
-                Icon(Symbols.verified, size: 50, color: Colors.blue),
+                const Icon(Symbols.verified, size: 50, color: Colors.blue),
               ],
             ),
           ],

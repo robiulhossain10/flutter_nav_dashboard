@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:new_system_flutter/app/dashboard/views/hospital_view.dart';
+import 'package:new_system_flutter/app/routes/app_routes.dart';
 
 class ApprovalView extends StatefulWidget {
   const ApprovalView({super.key});
@@ -33,7 +37,45 @@ class _ApprovalViewState extends State<ApprovalView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Pending Approvals")),
+      appBar: AppBar(
+        title: const Text(
+          "Pending Approvals",
+          style: TextStyle(color: Colors.white),
+        ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.vertical(
+            bottom: Radius.circular(30),
+          ),
+        ),
+        backgroundColor: Colors.deepOrangeAccent,
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
+        ),
+        toolbarHeight: 110,
+        actions: [
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert_rounded, color: Colors.white, size: 30),
+            onSelected: (value) => {},
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem(value: 'Setting', child: Text('Setting')),
+                PopupMenuItem(
+                  value: 'eidt',
+                  child: const Text('Edit Contact'),
+                  onTap: () {
+                    Get.toNamed(AppRoutes.hospital);
+                  },
+                ),
+                const PopupMenuItem(value: 'logout', child: Text('Logout')),
+              ];
+            },
+          ),
+        ],
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.all(12),
         itemCount: requests.length,
@@ -148,4 +190,9 @@ class _ApprovalViewState extends State<ApprovalView> {
       SnackBar(content: Text(message), behavior: SnackBarBehavior.floating),
     );
   }
+
+  void navTO() {
+    Get.to(HospitalView());
+  }
 }
+

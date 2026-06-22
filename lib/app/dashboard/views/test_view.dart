@@ -17,12 +17,12 @@ class TestView extends StatelessWidget {
       onPopInvokedWithResult: ((didPop, result) => {}),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "Home Menu",
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.amberAccent,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(24)),
           ),
           centerTitle: true,
@@ -38,7 +38,7 @@ class TestView extends StatelessWidget {
                   },
                 );
               },
-              icon: Icon(Icons.sunny),
+              icon: const Icon(Icons.sunny),
             ),
             IconButton(
               onPressed: () {
@@ -48,7 +48,7 @@ class TestView extends StatelessWidget {
                   type: SnackbarType.success,
                 );
               },
-              icon: Icon(Icons.camera_alt, color: Colors.teal),
+              icon: const Icon(Icons.camera_alt, color: Colors.teal),
               hoverColor: Colors.amber,
               splashRadius: 20,
               splashColor: Colors.lightGreen,
@@ -64,7 +64,7 @@ class TestView extends StatelessWidget {
                   },
                 );
               },
-              icon: Icon(Icons.mic_external_on, color: Colors.indigoAccent),
+              icon: const Icon(Icons.mic_external_on, color: Colors.indigoAccent),
             ),
           ],
           leading: IconButton(
@@ -75,19 +75,19 @@ class TestView extends StatelessWidget {
                 type: SnackbarType.info,
               );
             },
-            icon: Icon(Icons.arrow_back_ios_new),
+            icon: const Icon(Icons.arrow_back_ios_new),
           ),
         ),
         backgroundColor: Colors.teal,
         body: Center(
           child: Container(
             height: 200,
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.all(16),
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [BoxShadow(blurRadius: 10, offset: Offset(0, 3))],
+              boxShadow: [const BoxShadow(blurRadius: 10, offset: Offset(0, 3))],
             ),
             child: Row(
               children: [
@@ -95,7 +95,7 @@ class TestView extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       boxShadow: [
-                        BoxShadow(blurRadius: 10, offset: Offset(0, 5)),
+                        const BoxShadow(blurRadius: 10, offset: Offset(0, 5)),
                       ],
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.amberAccent,
@@ -108,7 +108,7 @@ class TestView extends StatelessWidget {
                             onPressed: () {
                               Get.toNamed(AppRoutes.details);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.add_location_alt_sharp,
                               size: 50,
                               color: Colors.green,
@@ -118,7 +118,7 @@ class TestView extends StatelessWidget {
                             onPressed: () {
                               Get.toNamed(AppRoutes.profile);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.verified,
                               size: 50,
                               color: Colors.blue,
@@ -128,7 +128,7 @@ class TestView extends StatelessWidget {
                             onPressed: () {
                               Get.toNamed(AppRoutes.users);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.whatshot,
                               size: 50,
                               color: Colors.redAccent,
