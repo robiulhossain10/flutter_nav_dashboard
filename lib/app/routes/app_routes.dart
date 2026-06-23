@@ -11,4 +11,5 @@ class AppRoutes {
   static const String stack = '/stack';
   static const String slider = '/slider';
   static const String newpractice = '/newpractice';
+  static const String robiul = '/robiul';
 }

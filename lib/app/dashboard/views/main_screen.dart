@@ -1,115 +1,137 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_system_flutter/app/dashboard/controller/nav_controller.dart';
+import 'package:new_system_flutter/app/dashboard/models/try_get.dart';
 import 'package:new_system_flutter/app/dashboard/views/aproval_slider.dart';
 import 'package:new_system_flutter/app/dashboard/views/arafat_view.dart';
+import 'package:new_system_flutter/app/dashboard/views/hrms_dashboard.dart';
 import 'package:new_system_flutter/app/dashboard/views/test_view.dart';
 
-import 'hrms_dashboard.dart';
+// ============================================================
+// NavController
+// ============================================================
 
-class MainScreen extends GetView<NavController> {
-  MainScreen({super.key});
 
-  // ৫টি স্ক্রিনের লিস্ট (মাঝখানে Attendance View যোগ করা হয়েছে)
-  final List<Widget> pages = [
-    const HRMSDashboard(),
-    const ApprovalView(),
-    const Center(
-      child: Text('Attendance Screen'),
-    ), // আপনার Attendance View টি এখানে দিন
-    const ArafatView(), // Payroll হিসেবে ব্যবহার করতে পারেন
-    const TestView(), // Profile হিসেবে ব্যবহার করতে পারেন
+// ============================================================
+// MainScreen
+// ✅ FIX: GetView বাদ — Get.find() দিয়ে controller নেওয়া
+//         যাতে binding ছাড়াও কাজ করে
+// ============================================================
+class MainScreen extends StatelessWidget {
+  MainScreen({super.key}) {
+    // ✅ FIX: controller এখানেই register করা হচ্ছে
+    // binding না থাকলেও কাজ করবে
+    if (!Get.isRegistered<NavController>()) {
+      Get.put(NavController(), permanent: false);
+    }
+  }
+
+  NavController get controller => Get.put<NavController>(NavController());
+
+  final List<Widget> _pages = const [
+    HRMSDashboard(), // 0 — Home
+    ApprovalView(),  // 1 — Approval
+    RobiulPage(),    // 2 — Attendance (FAB)
+    ArafatView(),    // 3 — Payroll
+    TestView(),      // 4 — Profile
   ];
+
+  static const _kRed     = Color(0xFFFF3B30);
+  static const _kRedDark = Color(0xFFE0241B);
+  static const _kGrey    = Color(0xFF9E9E9E);
+  static const _kDark1   = Color(0xFF1E1E24);
+  static const _kDark2   = Color(0xFF2D2D3A);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: const Color(0xFFF2F3F7),
+      resizeToAvoidBottomInset: false,
 
-      // IndexedStack আপনার পেজের স্টেট ধরে রাখবে
+      // ── Body ────────────────────────────────────────────
       body: Obx(
-        () =>
-            IndexedStack(index: controller.currentIndex.value, children: pages),
+        () => IndexedStack(
+          index: controller.currentIndex.value,
+          children: _pages,
+        ),
       ),
 
-      // 🔥 মাঝখানের বড় ভাসমান Attendance বাটন (FAB)
+      // ── FAB ─────────────────────────────────────────────
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Obx(() {
-        final isSelected = controller.currentIndex.value == 2;
-        return Container(
-          height: 68,
-          width: 68,
-          margin: const EdgeInsets.only(top: 10),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            borderRadius: BorderRadius.circular(22),
-            color: Colors.red, // লাল ব্যাকগ্রাউন্ড
-            boxShadow: [
-              BoxShadow(
-                color: Colors.red.withValues(alpha: 0.4),
-                blurRadius: 15,
-                offset: const Offset(0, 6),
+        final isSel = controller.currentIndex.value == 2;
+        return GestureDetector(
+          onTap: () => controller.changePage(2),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 220),
+            curve: Curves.easeInOut,
+            height: 62,
+            width: 62,
+            margin: const EdgeInsets.only(top: 10),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: isSel
+                    ? [_kDark1, _kDark2]
+                    : [_kRed, _kRedDark],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-            ],
-          ),
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(22),
-              onTap: () => controller.changePage(2), // Attendance index 2
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.shield_outlined, // ইমেজের মতো Shield আইকন
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(color: Colors.white, width: 3),
+              boxShadow: [
+                BoxShadow(
+                  color: isSel
+                      ? Colors.black.withOpacity(0.22)
+                      : _kRed.withOpacity(0.40),
+                  blurRadius: 14,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 200),
+                  child: Icon(
+                    isSel ? Icons.shield_rounded : Icons.shield_outlined,
+                    key: ValueKey(isSel),
                     color: Colors.white,
-                    size: 32,
+                    size: 24,
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 3),
+                const Text(
+                  'IN/OUT',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 9,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0.6,
+                  ),
+                ),
+              ],
             ),
           ),
         );
       }),
 
-      // 🔥 কাস্টম বটম নেভিগেশন বার
+      // ── Bottom Nav ───────────────────────────────────────
       bottomNavigationBar: BottomAppBar(
-        shape:
-            const CircularNotchedRectangle(), // মাঝখানে FAB এর জন্য স্পেস বানাবে
-        notchMargin: 8.0,
-        clipBehavior: Clip.antiAlias,
-        elevation: 20,
-        shadowColor: Colors.black.withValues(alpha: 0.5),
+        elevation: 18,
+        shadowColor: Colors.black.withOpacity(0.30),
         color: Colors.white,
-        child: Container(
-          height: 65,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.zero,
+        child: SizedBox(
+          height: 64,
           child: Obx(
             () => Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // বাম পাশের ২টি বাটন
-                _buildNavItem(index: 0, icon: Icons.home_filled, label: 'Home'),
-                _buildNavItem(
-                  index: 1,
-                  icon: Icons.navigation_outlined,
-                  label: 'Approval',
-                ),
-
-                // মাঝখানের FAB এর জন্য ফাঁকা জায়গা (Space Holder)
-                const SizedBox(width: 40),
-
-                // ডান পাশের ২টি বাটন
-                _buildNavItem(
-                  index: 3,
-                  icon: Icons.credit_card,
-                  label: 'Payroll',
-                ),
-                _buildNavItem(
-                  index: 4,
-                  icon: Icons.person_outline_rounded,
-                  label: 'Profile',
-                ),
+                _navItem(0, Icons.grid_view_rounded,      Icons.grid_view_rounded,     'Home'),
+                _navItem(1, Icons.near_me_outlined,       Icons.near_me_rounded,       'Approval'),
+                const SizedBox(width: 62),
+                _navItem(3, Icons.credit_card_outlined,   Icons.credit_card_rounded,   'Payroll'),
+                _navItem(4, Icons.person_outline_rounded, Icons.person_rounded,        'Profile'),
               ],
             ),
           ),
@@ -118,14 +140,9 @@ class MainScreen extends GetView<NavController> {
     );
   }
 
-  // বাটন তৈরি করার হেল্পার মেথড
-  Widget _buildNavItem({
-    required int index,
-    required IconData icon,
-    required String label,
-  }) {
-    final isSelected = controller.currentIndex.value == index;
-    final color = isSelected ? Colors.red : Colors.grey.shade400;
+  Widget _navItem(int index, IconData icon, IconData activeIcon, String label) {
+    final isSel = controller.currentIndex.value == index;
+    final color = isSel ? _kRed : _kGrey;
 
     return Expanded(
       child: InkWell(
@@ -136,26 +153,40 @@ class MainScreen extends GetView<NavController> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, color: color, size: 26),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
+            const SizedBox(height: 8),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200),
+              transitionBuilder: (child, anim) =>
+                  ScaleTransition(scale: anim, child: child),
+              child: Icon(
+                isSel ? activeIcon : icon,
+                key: ValueKey('nav_${index}_$isSel'),
                 color: color,
-                fontSize: 12,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                size: 24,
               ),
             ),
-            const SizedBox(height: 4),
-            // একটিভ আইটেমের নিচের লাল ইন্ডিকেটর লাইন
-            Container(
+            const SizedBox(height: 3),
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: TextStyle(
+                color: color,
+                fontSize: 10,
+                fontWeight: isSel ? FontWeight.w700 : FontWeight.w400,
+              ),
+              child: Text(label),
+            ),
+            const SizedBox(height: 5),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 220),
+              curve: Curves.easeOutCubic,
               height: 3,
-              width: 15,
+              width: isSel ? 18 : 0,
               decoration: BoxDecoration(
-                color: isSelected ? Colors.red : Colors.transparent,
+                color: _kRed,
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+            const SizedBox(height: 4),
           ],
         ),
       ),

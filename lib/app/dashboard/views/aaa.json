@@ -1,0 +1,349 @@
+{
+  "apis": [
+
+    {
+      "api": "1",
+      "method": "GET",
+      "endpoint": "/v1/company/info",
+      "header": "X-Company-Code: COM.MHPL.ITC",
+      "auth": false,
+      "success_response": {
+        "status": "success",
+        "code": 200,
+        "data": {
+          "company_id": 101,
+          "company_code": "COM.MHPL.ITC",
+          "company_name": "Monowara Hospital (Pvt.) Ltd.",
+          "logo_url": "https://cdn.powerhr.com/logos/mhpl.png",
+          "address": "Plot 5, Block D, Mirpur, Dhaka-1216",
+          "city": "Dhaka",
+          "country": "Bangladesh",
+          "phone": "+880 2-8034521",
+          "email": "hr@monowarahospital.com",
+          "website": "https://monowarahospital.com",
+          "industry": "Healthcare",
+          "employee_count": 248,
+          "theme": {
+            "primary_color": "#C0392B",
+            "dark_mode": false
+          }
+        }
+      },
+      "error_responses": {
+        "400": { "status": "error", "code": 400, "message": "X-Company-Code header is required" },
+        "404": { "status": "error", "code": 404, "message": "Company not found. Please check your company code." },
+        "500": { "status": "error", "code": 500, "message": "Internal server error" }
+      }
+    },
+
+    {
+      "api": "2",
+      "method": "GET",
+      "endpoint": "/v1/company/settings",
+      "header": "Authorization: Bearer <token>",
+      "auth": true,
+      "success_response": {
+        "status": "success",
+        "code": 200,
+        "data": {
+          "timezone": "Asia/Dhaka",
+          "default_language": "en",
+          "supported_languages": ["en", "bn"],
+          "session_timeout_minutes": 30,
+          "features": {
+            "gps_attendance": true,
+            "face_attendance": false,
+            "qr_attendance": true,
+            "wifi_attendance": false,
+            "biometric_login": true,
+            "multi_language": true,
+            "payroll_pin": true,
+            "screenshot_disabled": false,
+            "offline_mode": true
+          },
+          "approval": {
+            "levels": 2,
+            "types": ["LEAVE", "ATTENDANCE", "LOAN", "ADVANCE", "REMOTE_WORK"]
+          },
+          "geo_fence": {
+            "enabled": true,
+            "radius_meters": 200,
+            "latitude": 23.8041,
+            "longitude": 90.3744
+          }
+        }
+      },
+      "error_responses": {
+        "401": { "status": "error", "code": 401, "message": "Unauthorized. Invalid or expired token." },
+        "404": { "status": "error", "code": 404, "message": "Settings not found for this company." },
+        "500": { "status": "error", "code": 500, "message": "Internal server error" }
+      }
+    },
+
+    {
+      "api": "3",
+      "method": "GET",
+      "endpoint": "/v1/company/holidays?year=2025",
+      "header": "Authorization: Bearer <token>",
+      "auth": true,
+      "success_response": {
+        "status": "success",
+        "code": 200,
+        "data": {
+          "year": 2025,
+          "total": 5,
+          "holidays": [
+            {
+              "id": 1,
+              "name": "International Mother Language Day",
+              "name_bn": "আন্তর্জাতিক মাতৃভাষা দিবস",
+              "date": "2025-02-21",
+              "day": "Friday",
+              "type": "PUBLIC",
+              "is_restricted": false
+            },
+            {
+              "id": 2,
+              "name": "Independence Day",
+              "name_bn": "স্বাধীনতা দিবস",
+              "date": "2025-03-26",
+              "day": "Wednesday",
+              "type": "PUBLIC",
+              "is_restricted": false
+            },
+            {
+              "id": 3,
+              "name": "Eid ul-Fitr",
+              "name_bn": "ঈদুল ফিতর",
+              "date": "2025-03-31",
+              "day": "Monday",
+              "type": "PUBLIC",
+              "is_restricted": false
+            },
+            {
+              "id": 4,
+              "name": "Victory Day",
+              "name_bn": "বিজয় দিবস",
+              "date": "2025-12-16",
+              "day": "Tuesday",
+              "type": "PUBLIC",
+              "is_restricted": false
+            },
+            {
+              "id": 5,
+              "name": "Company Foundation Day",
+              "name_bn": "কোম্পানি প্রতিষ্ঠাবার্ষিকী",
+              "date": "2025-10-10",
+              "day": "Friday",
+              "type": "COMPANY",
+              "is_restricted": true
+            }
+          ]
+        }
+      },
+      "error_responses": {
+        "401": { "status": "error", "code": 401, "message": "Unauthorized." },
+        "500": { "status": "error", "code": 500, "message": "Internal server error" }
+      }
+    },
+
+    {
+      "api": "4",
+      "method": "GET",
+      "endpoint": "/v1/company/shifts",
+      "header": "Authorization: Bearer <token>",
+      "auth": true,
+      "success_response": {
+        "status": "success",
+        "code": 200,
+        "data": {
+          "total": 3,
+          "shifts": [
+            {
+              "shift_id": 1,
+              "shift_name": "General Shift",
+              "shift_code": "GEN",
+              "start_time": "08:00",
+              "end_time": "17:00",
+              "work_hours": 8,
+              "grace_minutes": 10,
+              "early_out_minutes": 15,
+              "is_night_shift": false,
+              "off_days": ["FRI", "SAT"]
+            },
+            {
+              "shift_id": 2,
+              "shift_name": "Morning Shift",
+              "shift_code": "MRN",
+              "start_time": "06:00",
+              "end_time": "14:00",
+              "work_hours": 8,
+              "grace_minutes": 5,
+              "early_out_minutes": 10,
+              "is_night_shift": false,
+              "off_days": ["FRI", "SAT"]
+            },
+            {
+              "shift_id": 3,
+              "shift_name": "Night Shift",
+              "shift_code": "NGT",
+              "start_time": "22:00",
+              "end_time": "06:00",
+              "work_hours": 8,
+              "grace_minutes": 10,
+              "early_out_minutes": 15,
+              "is_night_shift": true,
+              "off_days": ["FRI", "SAT"]
+            }
+          ]
+        }
+      },
+      "error_responses": {
+        "401": { "status": "error", "code": 401, "message": "Unauthorized." },
+        "500": { "status": "error", "code": 500, "message": "Internal server error" }
+      }
+    },
+
+    {
+      "api": "5",
+      "method": "GET",
+      "endpoint": "/v1/company/departments",
+      "header": "Authorization: Bearer <token>",
+      "auth": true,
+      "success_response": {
+        "status": "success",
+        "code": 200,
+        "data": {
+          "total": 5,
+          "departments": [
+            {
+              "dept_id": 10,
+              "dept_code": "IT",
+              "dept_name": "Information Technology",
+              "dept_name_bn": "তথ্য প্রযুক্তি",
+              "parent_id": null,
+              "head": "Mahbub Khan",
+              "employee_count": 12
+            },
+            {
+              "dept_id": 11,
+              "dept_code": "HR",
+              "dept_name": "Human Resources",
+              "dept_name_bn": "মানব সম্পদ",
+              "parent_id": null,
+              "head": "Sumaiya Rahman",
+              "employee_count": 8
+            },
+            {
+              "dept_id": 12,
+              "dept_code": "FIN",
+              "dept_name": "Finance & Accounts",
+              "dept_name_bn": "অর্থ ও হিসাব",
+              "parent_id": null,
+              "head": "Nasrin Islam",
+              "employee_count": 15
+            },
+            {
+              "dept_id": 13,
+              "dept_code": "MED",
+              "dept_name": "Medical",
+              "dept_name_bn": "চিকিৎসা বিভাগ",
+              "parent_id": null,
+              "head": "Dr. Karim Hossain",
+              "employee_count": 85
+            },
+            {
+              "dept_id": 14,
+              "dept_code": "ADM",
+              "dept_name": "Administration",
+              "dept_name_bn": "প্রশাসন",
+              "parent_id": null,
+              "head": "Rahim Ahmed",
+              "employee_count": 20
+            }
+          ]
+        }
+      },
+      "error_responses": {
+        "401": { "status": "error", "code": 401, "message": "Unauthorized." },
+        "500": { "status": "error", "code": 500, "message": "Internal server error" }
+      }
+    },
+
+    {
+      "api": "6",
+      "method": "GET",
+      "endpoint": "/v1/company/designations",
+      "header": "Authorization: Bearer <token>",
+      "auth": true,
+      "success_response": {
+        "status": "success",
+        "code": 200,
+        "data": {
+          "total": 6,
+          "designations": [
+            {
+              "desig_id": 1,
+              "desig_code": "MD",
+              "desig_name": "Managing Director",
+              "desig_name_bn": "ব্যবস্থাপনা পরিচালক",
+              "grade_level": 1,
+              "dept_id": null,
+              "dept_name": null
+            },
+            {
+              "desig_id": 2,
+              "desig_code": "GM",
+              "desig_name": "General Manager",
+              "desig_name_bn": "মহাব্যবস্থাপক",
+              "grade_level": 2,
+              "dept_id": null,
+              "dept_name": null
+            },
+            {
+              "desig_id": 3,
+              "desig_code": "MGR",
+              "desig_name": "Manager",
+              "desig_name_bn": "ম্যানেজার",
+              "grade_level": 3,
+              "dept_id": null,
+              "dept_name": null
+            },
+            {
+              "desig_id": 4,
+              "desig_code": "MO",
+              "desig_name": "Medical Officer",
+              "desig_name_bn": "চিকিৎসক",
+              "grade_level": 4,
+              "dept_id": 13,
+              "dept_name": "Medical"
+            },
+            {
+              "desig_id": 5,
+              "desig_code": "SE",
+              "desig_name": "Software Engineer",
+              "desig_name_bn": "সফটওয়্যার ইঞ্জিনিয়ার",
+              "grade_level": 5,
+              "dept_id": 10,
+              "dept_name": "Information Technology"
+            },
+            {
+              "desig_id": 6,
+              "desig_code": "NURSE",
+              "desig_name": "Staff Nurse",
+              "desig_name_bn": "স্টাফ নার্স",
+              "grade_level": 5,
+              "dept_id": 13,
+              "dept_name": "Medical"
+            }
+          ]
+        }
+      },
+      "error_responses": {
+        "401": { "status": "error", "code": 401, "message": "Unauthorized." },
+        "500": { "status": "error", "code": 500, "message": "Internal server error" }
+      }
+    }
+
+  ]
+}

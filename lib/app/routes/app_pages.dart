@@ -4,6 +4,7 @@ import 'package:new_system_flutter/app/dashboard/bindings/login_bindings.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/main_binding.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/splash_binding.dart';
 import 'package:new_system_flutter/app/dashboard/bindings/user_binding.dart';
+import 'package:new_system_flutter/app/dashboard/models/try_get.dart';
 import 'package:new_system_flutter/app/dashboard/views/AttendanceDetailsPage%20.dart';
 import 'package:new_system_flutter/app/dashboard/views/aproval_slider.dart';
 import 'package:new_system_flutter/app/dashboard/views/arafat_view.dart';
@@ -67,6 +68,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.newpractice,
       page: () => const NewPracticeView()
+    ),
+    GetPage(
+      name: AppRoutes.robiul,
+      page: () => const RobiulPage()
     ),
   ];
 }

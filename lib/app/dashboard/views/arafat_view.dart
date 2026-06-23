@@ -102,42 +102,40 @@ class ArafatView extends StatelessWidget {
                     ),
                     const SizedBox(width: 15),
 
-                    const Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Arafat',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                    const Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Arafat',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Icon(Icons.link, color: Colors.blueGrey),
-                              SizedBox(width: 6),
-                              Text('Flutter Developer'),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.maps_home_work_rounded,
-                                color: Colors.red,
-                                size: 16,
-                              ),
-                              SizedBox(width: 12),
-                              Text('Dhaka Bangladesh'),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.link, color: Colors.blueGrey),
+                            SizedBox(width: 6),
+                            Text('Flutter Developer'),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.maps_home_work_rounded,
+                              color: Colors.red,
+                              size: 16,
+                            ),
+                            SizedBox(width: 12),
+                            Text('Dhaka Bangladesh'),
+                          ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -787,59 +785,53 @@ class ArafatView extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    const Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Arafat',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Arafat',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
                               ),
+                            ),
 
-                              SizedBox(width: 5),
+                            SizedBox(width: 5),
 
-                              Icon(
-                                Icons.verified,
-                                color: Colors.blue,
-                                size: 18,
-                              ),
-                            ],
-                          ),
+                            Icon(Icons.verified, color: Colors.blue, size: 18),
+                          ],
+                        ),
 
-                          SizedBox(height: 6),
+                        SizedBox(height: 6),
 
-                          Row(
-                            children: [
-                              Icon(Icons.code, size: 16, color: Colors.indigo),
-                              SizedBox(width: 5),
-                              Text(
-                                'Flutter Developer',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Icon(Icons.code, size: 16, color: Colors.indigo),
+                            SizedBox(width: 5),
+                            Text(
+                              'Flutter Developer',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
 
-                          SizedBox(height: 4),
+                        SizedBox(height: 4),
 
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.location_on,
-                                size: 16,
-                                color: Colors.red,
-                              ),
-                              SizedBox(width: 5),
-                              Text('Dhaka, Bangladesh'),
-                            ],
-                          ),
-                        ],
-                      ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              size: 16,
+                              color: Colors.red,
+                            ),
+                            SizedBox(width: 5),
+                            Text('Dhaka, Bangladesh'),
+                          ],
+                        ),
+                      ],
                     ),
 
                     IconButton(
